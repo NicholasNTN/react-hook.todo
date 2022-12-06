@@ -1,29 +1,57 @@
 import '../style/add-blog.style.scss';
 import { AiOutlineAppstoreAdd } from "react-icons/ai";
 import { useState } from 'react';
+import axios from 'axios';
 
-const AddBlog = () => {
+const AddBlog = (props) => {
 
-    const [blog, setBlog] = useState([]);
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
-    const [style, setStyle] = useState("main-container");
+    const [style] = useState("main-container");
 
-    const changleStyle = () => {
-        setStyle("main-containerOne");
+    const handleClose = () => {
+        props.setOpen(false);
     };
 
-    const handleOnSubmit = (event) => {
+    const handleOnSubmit = async (event) => {
         // tranh re-render form
         event.preventDefault();
+
+        if (!title && !content) {
+            alert("please enter full informations !")
+            return;
+        } else if (!title) {
+            alert("Enter your title !")
+            return;
+        } else if (!content) {
+            alert(`Enter your describe !`)
+            return;
+        }
+
+        let data = {
+            title: title,
+            body: content,
+            userId: 1
+        }
+
+        let res = await axios.post(`https://jsonplaceholder.typicode.com/posts`, data)
+        if (res && res.data) {
+            let newBlog = res.data;
+            props.handleAddBlogs(newBlog);
+            console.log(">>Check new blog", newBlog);
+        }
+
         console.log(">>Check Form", title, content);
+
+        setTitle('');
+        setContent('');
     }
 
     return (
         <>
             <div className={style}>
                 <div className='add-container' >
-                    <button className="back" onClick={changleStyle}>Close</button>
+                    <button className="back" onClick={handleClose}>Close</button>
                     <div className='add-title'>Add New Blog<AiOutlineAppstoreAdd /></div>
                     <form onSubmit={handleOnSubmit}>
                         <label htmlFor="fname">Title</label>

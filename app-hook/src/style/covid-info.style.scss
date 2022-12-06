@@ -5,10 +5,10 @@
     font-size: calc(10px + 2vmin);
     color: white; 
   }
-.containers{
-    h1{
-      text-align: center;
-    }
+.covid-container{
+    padding: 50px;
+    padding-top: 10px;
+    text-align: center;
     @include bg;
     table {
         font-family: arial, sans-serif;

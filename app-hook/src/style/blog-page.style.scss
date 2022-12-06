@@ -9,12 +9,11 @@
 }
 
 .blog-container{
-    // padding-top: 50px;
+    padding-bottom: 50px;
     display: flex;
     flex-direction: row;
-    gap: 40px;
+    gap: 20px;
     flex-wrap: wrap;
-    padding-bottom: 50px;
     .blog-add{
         margin: 0px 30px 0px 30px;
         width: 100%;
@@ -23,7 +22,7 @@
             background-color: #282c34;
             color: #79a6ff;
             border: none;
-            font-size: 1.5rem;
+            font-size: 1.1rem;
             float: right;
         }
         button:hover{
@@ -32,12 +31,25 @@
     }
     @include bg;
     .card {
+        // padding: 10px;
+        padding: 10px 30px 10px 10px;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        max-width: 400px;
+        max-width: 380px;
+        width: 380px;
         text-align: left;
         font-size: 14px;
-        min-height: 130px;
+        min-height: 150px;
+        background-color: #0c3636;
+        i{
+            position: absolute;
+            font-size: 1.5rem;
+            margin-left: 380px;
+        }
+        i:hover{
+            opacity: 0.5;
+        }
         .title{
+            height: 60px;
             font-size: 20px;
             font-weight: 600;
         }

@@ -5,21 +5,41 @@ import useFetch from "../customize/fetch.data";
 import { Link } from "react-router-dom";
 import { HiOutlineViewGridAdd } from "react-icons/hi";
 import AddBlog from "../views/add-new.blog";
+import { TiDocumentDelete } from "react-icons/ti";
+import { useEffect } from "react";
 
 const BlogHome = () => {
 
     const [open, setOpen] = useState(false);
+    const [newData, setNewData] = useState([]);
+
+    const handleShow = () => {
+        setOpen(true);
+    };
 
     const { data: dataBlogs, isLoadding, isError }
         = useFetch(`https://jsonplaceholder.typicode.com/posts`, false); //ko chạy và hàm sử lý data như khi set isCovidData === true
 
-    // console.log(">>>Check data:", dataBlogs)
+    useEffect(() => {
+        if (dataBlogs && dataBlogs.length > 0) {
+            let data = dataBlogs.slice(0, 12);
+            setNewData(data);
+        }
+    }, [dataBlogs]);
 
-    let newData = [];
-    if (dataBlogs && dataBlogs.length > 0) {
-        newData = dataBlogs.slice(0, 12);
-        console.log(">>>Check newBlogs", newData);
-    }
+    const handleAddBlogs = ((blog) => {
+        let data = newData;
+        data.unshift(blog);
+
+        setOpen(false);
+        setNewData(data);
+    });
+
+    const handleDeletePost = (id) => {
+        let data = newData;
+        data = newData.filter(item => item.id !== id);
+        setNewData(data);
+    };
 
     return (
         <React.Fragment>
@@ -27,24 +47,28 @@ const BlogHome = () => {
             <div className="blog-container">
                 <h1>Blog</h1>
                 <div className="blog-add">
-                    {/* <button onClick={handleAddBlog}><HiOutlineViewGridAdd />Add new blog</button> */}
-                    <button onClick={() => setOpen(true)}><HiOutlineViewGridAdd />Add new blog</button>
+                    <button onClick={handleShow}><HiOutlineViewGridAdd />Add new blog</button>
                 </div>
                 {
-                    open && <AddBlog />
+                    open && <AddBlog
+                        open={open}
+                        setOpen={setOpen}
+                        handleAddBlogs={handleAddBlogs}
+                    />
                 }
 
                 {
                     isError === false && isLoadding === true && newData && newData.length > 0 && newData.map(item => {
                         return (
                             <div className="card" key={item.id}>
+                                <i className="delete" onClick={() => handleDeletePost(item.id)}><TiDocumentDelete /></i>
                                 <div className="title">{item.title}</div>
                                 <div className="centent">{item.body} <Link to={`/blog/${item.id}`}>View detail...</Link></div>
                             </div>
                         );
                     })
                 }
-                
+
                 {
                     isLoadding === false
                     && <div style={{ 'textAlign': 'center', 'width': '100%' }}><p>Loading...</p></div>

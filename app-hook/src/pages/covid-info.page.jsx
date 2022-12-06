@@ -51,27 +51,29 @@ const Covid = () => {
     // lay 100 ngay gan nhat
 
     return (
-        <div className='containers'>
+        <>
             <Navbar />
-            <h1>Fetch data - useEffect</h1>
-            <CountDown />
-            <table>
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Active</th>
-                        <th>Confirmed</th>
-                        <th>Deaths</th>
-                        <th>Country</th>
-                    </tr>
-                </thead>
-                <CovidInfo
-                    isError={isError}
-                    isLoadding={isLoadding}
-                    dataCovid={dataCovid}
-                />
-            </table>
-        </div>
+            <div className='covid-container'>
+                <h1>Fetch data - useEffect</h1>
+                <CountDown />
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Active</th>
+                            <th>Confirmed</th>
+                            <th>Deaths</th>
+                            <th>Country</th>
+                        </tr>
+                    </thead>
+                    <CovidInfo
+                        isError={isError}
+                        isLoadding={isLoadding}
+                        dataCovid={dataCovid}
+                    />
+                </table>
+            </div>
+        </>
     );
 }
 export default Covid;
