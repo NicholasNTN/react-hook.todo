@@ -1,0 +1,31 @@
+@mixin bg {
+    background-color: #282c34;
+    min-height: 100vh;
+    justify-content: center; 
+    font-size: calc(10px + 2vmin);
+    color: white; 
+  }
+.containers{
+    h1{
+      text-align: center;
+    }
+    @include bg;
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        tr:nth-child(even) {
+            background-color: #3e444e;
+          }
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+          }
+      }
+}
+
+  
+  
+  
+  

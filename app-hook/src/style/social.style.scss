@@ -1,0 +1,22 @@
+.right{
+    #posts {
+        width: 400px;
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            li:hover {
+                color: rgb(206, 189, 189);
+            }
+            .options {
+                gap: 25px;
+                i {
+                    cursor: pointer;
+                }
+                i:hover {
+                    color: darkcyan;
+                }
+            }
+        }
+    }
+}

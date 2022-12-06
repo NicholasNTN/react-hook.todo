@@ -1,0 +1,41 @@
+@mixin bg {
+    font-size: calc(10px + 2vmin);
+    background-color: #282c34;
+    min-height: 100vh;
+    color: white;
+}
+.detail-container{
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    flex-wrap: wrap;
+    @include bg;
+    span{
+        margin-left: 20px;
+        text-decoration: none;
+        color: rgb(71, 99, 122);
+    }
+    span:hover{
+        opacity: 0.5;
+    }
+    .card-detail {
+        // canh giua
+        border:1px solid green;
+        width:600px;
+        margin:auto;
+        margin-top: 15px;
+        // 
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        text-align: center;
+        font-size: 16px;
+        min-height: 130px;
+        .title{
+            font-size: 22px;
+            font-weight: 600;
+        }
+        .content{
+            padding-top: 10px;
+        }
+      }
+}
