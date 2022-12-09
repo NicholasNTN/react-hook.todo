@@ -7,6 +7,8 @@ import { HiOutlineViewGridAdd } from "react-icons/hi";
 import AddBlog from "../views/add-new.blog";
 import { TiDocumentDelete } from "react-icons/ti";
 import { useEffect } from "react";
+// import CountDown from "../views/count.down";
+import Loader from "../views/loader";
 
 const BlogHome = () => {
 
@@ -25,14 +27,15 @@ const BlogHome = () => {
             let data = dataBlogs.slice(0, 12);
             setNewData(data);
         }
-    }, [dataBlogs]);
+    }, [dataBlogs]); //khi tham số dataBlogs thì nó sẽ setNewData(data) set lại state.
 
-    const handleAddBlogs = ((blog) => {
+    const handleAddBlogs = ((item) => {
         let data = newData;
-        data.unshift(blog);
+        data.unshift(item); //đẩy phần tử lên đầu mảng.
 
         setOpen(false);
         setNewData(data);
+        console.log("Check Item", item)
     });
 
     const handleDeletePost = (id) => {
@@ -71,7 +74,8 @@ const BlogHome = () => {
 
                 {
                     isLoadding === false
-                    && <div style={{ 'textAlign': 'center', 'width': '100%' }}><p>Loading...</p></div>
+                    // && <div style={{ 'textAlign': 'center' }}><CountDown /></div>
+                    && <Loader />
                 }
                 {
                     isError === true && <div style={{ 'textAlign': 'center' }}><p>Something...</p></div>

@@ -47,10 +47,10 @@ const useFetch = (url, isCovidData) => {
                 console.log(">>>Check error:", err)
             }
         }
-        // setTimeout(() => {
-        //     fetchMyAPI();
-        // }, 3000);
-        fetchMyAPI();
+        setTimeout(() => {
+            fetchMyAPI();
+        }, 3000);
+        // fetchMyAPI();
 
         return () => {
             ourReques.cancel('Operation cancled by the user')

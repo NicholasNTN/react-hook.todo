@@ -37,8 +37,7 @@ const AddBlog = (props) => {
         let res = await axios.post(`https://jsonplaceholder.typicode.com/posts`, data)
         if (res && res.data) {
             let newBlog = res.data;
-            props.handleAddBlogs(newBlog);
-            console.log(">>Check new blog", newBlog);
+            props.handleAddBlogs(newBlog); //truyền newBlog từ th cha.
         }
 
         console.log(">>Check Form", title, content);

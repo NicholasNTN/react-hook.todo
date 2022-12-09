@@ -1,3 +1,6 @@
+import CountDown from '../views/count.down';
+import Loader from './loader';
+
 const CovidInfo = (props) => {
 
     const { isError, isLoadding, dataCovid } = props;
@@ -21,12 +24,12 @@ const CovidInfo = (props) => {
 
             {
                 isLoadding === false
-                && <tr><td colSpan='5' style={{ 'textAlign': 'center' }}>Loading...</td></tr>
+                && <tr><td colSpan='5' style={{ 'textAlign': 'center' }}><CountDown/></td></tr>
             }
 
             {
                 isError === true
-                && <tr><td colSpan='5' style={{ 'textAlign': 'center' }}>Something wrong...</td></tr>
+                && <Loader />
             }
         </tbody>
     );

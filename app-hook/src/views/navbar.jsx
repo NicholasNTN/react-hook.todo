@@ -9,7 +9,7 @@ const Navbar = () => {
                     <NavLink className={(navData) => (navData.isActive ? "active" : 'none')} to='/'>Home</NavLink>
                     <NavLink to='/social'>Social</NavLink>
                     <NavLink to='/blog'>Blog</NavLink>
-                    <NavLink to='/sucket?'>Sucket</NavLink>
+                    <NavLink to='/search-youtube'>Youtube</NavLink>
                     <div className="search-container">
                         <form action="/action_page.php">
                             <input type="text" placeholder="Tìm kiếm.." name="search" />

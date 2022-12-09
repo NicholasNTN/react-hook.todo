@@ -1,7 +1,7 @@
 import moment from 'moment/moment';
 import '../style/covid-info.style.scss';
 import useFetch from '../customize/fetch.data';
-import CountDown from '../views/count.down';
+    import CountDown from '../views/count.down';
 import Navbar from '../views/navbar';
 import CovidInfo from '../views/covid.info';
 
@@ -55,7 +55,6 @@ const Covid = () => {
             <Navbar />
             <div className='covid-container'>
                 <h1>Fetch data - useEffect</h1>
-                <CountDown />
                 <table>
                     <thead>
                         <tr>

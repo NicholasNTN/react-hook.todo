@@ -23,7 +23,7 @@ const CountDown = () => {
     }, [count]);
 
     return (
-        <p>count down {count} s</p>
+        <p>Loading... {count}s</p>
     );
 }
 export default CountDown;

@@ -1,0 +1,41 @@
+.side-bar{
+    position: fixed;
+    top: 60px;
+    left: 0;
+    min-width: 200px;
+    width: 200px;
+    height: calc(100vh - 60px);
+    background: #fff;
+    padding: 0 2.5vw;
+    .seperator{
+        width: 215px;
+        border: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        margin: 20px 0;
+    }
+    a{
+        display: block;
+        width: 100%;
+        padding: 10px 15px 10px 0px;
+        display: flex;
+        align-items: center;
+        text-transform: capitalize;
+        color: #242424;
+        font-size: 14px;
+        font-weight: 500;
+        text-decoration: none;
+        .active{
+            background: rgba(0, 0, 0, 0.1);
+        }
+        img{
+            height: 25px;
+            margin-right: 20px;
+        }
+    }
+    a:hover{
+        background: rgba(0, 0, 0, 0.1);
+    }
+}
+
+
+
